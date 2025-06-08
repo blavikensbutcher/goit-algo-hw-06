@@ -1,5 +1,5 @@
 def dijkstra_r(graph, start):
-    distances = {vertex: float('infinity') for vertex in graph}
+    distances = {vertex: float("infinity") for vertex in graph}
     previous_nodes = {vertex: None for vertex in graph}
     distances[start] = 0
     unvisited = list(graph.nodes)
@@ -7,11 +7,11 @@ def dijkstra_r(graph, start):
     while unvisited:
         current_vertex = min(unvisited, key=lambda vertex: distances[vertex])
 
-        if distances[current_vertex] == float('infinity'):
+        if distances[current_vertex] == float("infinity"):
             break
 
         for neighbor in graph.neighbors(current_vertex):
-            weight = graph[current_vertex][neighbor]['weight']
+            weight = graph[current_vertex][neighbor]["weight"]
             distance = distances[current_vertex] + weight
 
             if distance < distances[neighbor]:
@@ -19,7 +19,6 @@ def dijkstra_r(graph, start):
                 previous_nodes[neighbor] = current_vertex
 
         unvisited.remove(current_vertex)
-
 
     paths = {}
     for vertex in graph.nodes:
